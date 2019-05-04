@@ -19,6 +19,22 @@ public class Main {
 
         return data[left] == key;
     }
+    
+    private static boolean recursiveBinarySearch(int[] data, int key) {
+        if (data.length == 1) {
+            return data[0] == key;
+        } else {
+            int left = 0;
+            int right = data.length;
+            int mid = (left + right)/2;
+            
+            if (key > data[mid-1]) {
+                return recursiveBinarySearch(Arrays.copyOfRange(data, mid, data.length), key);
+            } else {
+                return recursiveBinarySearch(Array.copyOfRange(data, 0, mid), key);
+            }
+        }
+    }
 
     private static int[] initRandom(int size, int range) {
         //returns an array of random integers with no duplicates
@@ -47,7 +63,12 @@ public class Main {
         Random random = new Random();
         int testKey = random.nextInt(RANGE);
         
-        boolean found = iterativeBinarySearch(testArr, testKey);
+        boolean iterativeFound = iterativeBinarySearch(testArr, testKey);
+        boolean recursiveFound = recursiveBinarySearch(testArr, testKey);
+        
+        assert (iterativeFound == recursiveFound);
+        boolean found = iterativeFound;
+        
         System.out.println("Searching the test array: " + Arrays.toString(testArr));
         System.out.println("For the test key: " + testKey);
         if (found) {
