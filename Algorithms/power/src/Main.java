@@ -18,8 +18,9 @@ public class Main {
     }
 
     public static void main(String[] args) {
-        Random random = new Random();
         final int RANGE = 10;
+
+        Random random = new Random();
         int testBase = random.nextInt(RANGE);
         int testPower = random.nextInt(RANGE);
 
@@ -28,7 +29,7 @@ public class Main {
 
         assert (iterativeResult == recursiveResult);
         int result = iterativeResult;
-        
+
         System.out.println("Calculating " + testBase + "^" + testPower);
         System.out.println("= " + result);
     }
