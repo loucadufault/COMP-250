@@ -42,13 +42,14 @@ public class Main {
     public static void main(String[] args) {
         final int SIZE = 20;
         final int RANGE = 100;
+        
         int[] testArr = initRandom(SIZE, RANGE);
-
         Random random = new Random();
-        int key = random.nextInt(RANGE);
-        boolean found = iterativeBinarySearch(testArr, key);
+        int testKey = random.nextInt(RANGE);
+        
+        boolean found = iterativeBinarySearch(testArr, testKey);
         System.out.println("Searching the test array: " + Arrays.toString(testArr));
-        System.out.println("For the test key: " + key);
+        System.out.println("For the test key: " + testKey);
         if (found) {
             System.out.println("Found.");
         } else {
